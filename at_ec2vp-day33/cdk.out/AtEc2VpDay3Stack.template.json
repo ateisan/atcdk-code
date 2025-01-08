@@ -14,7 +14,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "AtEc2VpDay3Stack/atvm1"
+      "Value": "at-linux-vm"
      }
     ],
     "VpcId": "vpc-07eede624774fec02"
@@ -41,7 +41,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "AtEc2VpDay3Stack/atvm1"
+      "Value": "at-linux-vm"
      }
     ]
    },
@@ -92,7 +92,7 @@
     "Tags": [
      {
       "Key": "Name",
-      "Value": "AtEc2VpDay3Stack/atvm1"
+      "Value": "at-linux-vm"
      }
     ],
     "UserData": {

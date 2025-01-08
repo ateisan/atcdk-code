@@ -17,4 +17,16 @@ jobs: # we are creating jobs to perform steps
 
     - name: verify code in vm
       run: ls
-      
+
+    - name: install dependencies
+      run: |
+        cd at_ec2vp-day33
+        npm install
+        npm install -g aws-cdk
+
+    - name: compile code
+      run: |
+        cd at_ec2vp-day33
+        cdk synth
+
+
