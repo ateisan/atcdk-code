@@ -1,0 +1,20 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "547304d5ee582b12192bd0a1b6a1fdcbc975dd916de2722edf1805bb5057314e": {
+      "source": {
+        "path": "AtEc2VpDay3Stack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "992382386705-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-992382386705-us-east-1",
+          "objectKey": "547304d5ee582b12192bd0a1b6a1fdcbc975dd916de2722edf1805bb5057314e.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-file-publishing-role-992382386705-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
