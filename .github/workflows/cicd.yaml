@@ -2,7 +2,7 @@ name: Deploy Stack on aws
 on:
   push:
     branches:
-      - mainnnnn # when ever any code gets pushed to master branch it will trigger
+      - main # when ever any code gets pushed to master branch it will trigger
 jobs: # we are creating jobs to perform steps
   ec2-deploy: 
     runs-on: ubuntu-latest # from azure pool
