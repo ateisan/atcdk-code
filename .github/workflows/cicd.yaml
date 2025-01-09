@@ -15,6 +15,41 @@ jobs: # we are creating jobs to perform steps
       run: |
          cd at_day4_bestway
          cdk deploy --require-approval never
+##
+  ec2-deploy: # job name 
+    runs-on: ubuntu-latest # from azure pool
+    needs: s3-deploy # it will run after s3-deploy job 
+
+    steps: # steps to setup cdk and run code 
+    - name: setup node.js 20 version
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: checkout git repo code to vm 
+      uses: actions/checkout@v2 
+
+    - name: verify code in vm 
+      run: ls 
+
+    - name: install dependecies
+      run: | 
+        cd at_day4_bestway/
+        npm install 
+        npm install -g aws-cdk 
+
+    - name: complie code 
+      run: |
+        cd at_day4_bestway/
+        cdk synth 
+    - name: deploy cdk in aws account 
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+      run: |
+        cd at_day4_bestway/
+        cdk deploy AtDay4ec2all --require-approval never
 
   s3-deploy:
     runs-on: ubuntu-latest # from azure pool
@@ -48,5 +83,5 @@ jobs: # we are creating jobs to perform steps
         AWS_REGION: ${{ secrets.AWS_REGION }}
       run: |
          cd at_day4_bestway
-         cdk deploy --require-approval never
+         cdk deploy AtDay4ec2all --require-approval never
 
